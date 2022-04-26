@@ -1,13 +1,32 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../Context/AuthProvider";
 const Navigation = () => {
+  const {currentUser, logOut} = useAuth();
+
+
+  const buttonStyle = {
+    backgroundColor: "#333c83",
+    color: "#ffffff",
+    border: "none",
+    padding: "10px",
+    width: "120px",
+    borderRadius: "5px",
+    fontWeight: "600",
+    marginRight: "50px",
+  };
+  const LinkStyle ={
+    color:'White',
+    fontWeight:'600',
+    textDecoration:'none',
+    margin: '15px'
+  }
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
@@ -25,10 +44,40 @@ const Navigation = () => {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Doctors Portal
             </Typography>
-            <Link to="/">
-              <Button color="inherit">Appointment</Button>
+            <Link style={LinkStyle} to="/appointment">
+              Appointment
             </Link>
-            <Button color="inherit">Login</Button>
+            {
+                !currentUser?.name?(
+
+            <Link style={LinkStyle} to='/login' color="inherit">Login</Link>
+                ):(
+                  <button style={buttonStyle} onClick={logOut}>
+                    LogOut
+                  </button>
+                )
+            }
+            {
+              currentUser?.name?(
+                <div>
+                <span
+                  style={{ color: "white", marginLeft: "5px" }}
+                >
+                  Hello, {currentUser?.name}  
+                </span> <br/>
+                <span
+                  style={{ color: "white", marginLeft: "5px" }}> {currentUser?.email}</span>
+                </div>
+              ):(
+                <Link
+                  to="/signUp"
+                >
+                  Sign up
+                </Link>
+              )
+            }
+           
+          
           </Toolbar>
         </AppBar>
       </Box>

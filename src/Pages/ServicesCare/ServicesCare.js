@@ -12,7 +12,7 @@ const ServicesCare = () => {
         <h1 style={{color: '#001E6C'}}>Exceptional Dental <br/> Care, on your Terms</h1>
           <p style={{color:'grey'}} >
             "Fluoride treatments are typically professional treatments
-            containing a high concentration of fluoride that a dentist or
+            containing a high co\ncentration of fluoride that a dentist or
             hygienist will apply to a person's teeth to improve health and
             reduce the risk of cavities. These in-office treatments may take the
             form of a solution, gel, foam, or varnish.",

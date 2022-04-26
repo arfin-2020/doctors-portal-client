@@ -8,9 +8,8 @@ import Typography from "@mui/material/Typography";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import React from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
-
 
 const Modalstyle = {
   position: "absolute",
@@ -33,20 +32,57 @@ const buttonStyle = {
   fontWeight: "600",
   marginTop: "10px",
 };
-const ModalText = ({ openModal, handleClose, subject, visitingHour,setOpenModal, date}) => {
+const ModalText = ({
+  openModal,
+  handleClose,
+  subject,
+  visitingHour,
+  setOpenModal,
+  date,
+}) => {
   const [calenderdate, setCalenderdate] = React.useState(new Date());
+  const [name, setName] = useState("");
+  const [phoneNumber, setphoneNumber] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleFormSubmit = e => {
+
     e.preventDefault();
-    console.log(date.toDateString());
-    setOpenModal(false);
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Form Send successfull.',
-      showConfirmButton: false,
-      timer: 1500
+
+    const bookingInformation = {
+      name: name,
+      phoneNumber: phoneNumber,
+      email: email,
+      date: date,
+      visitingHour: visitingHour,
+    };
+
+    fetch('http://localhost:5000/appointment',{
+      method:'POST',
+        headers:{
+          'content-type': 'application/json'
+        },
+        body:JSON.stringify(bookingInformation)
     })
+    .then(response=> response.json())
+    .then(data => {
+      // console.log(data)
+      if(data.acknowledged){
+
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Form Send successfull.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    })
+    .catch(error => console.error('Unable to get items.', error));
+
+
+    // console.log(data)
+    setOpenModal(false);
   };
   return (
     <div>
@@ -64,14 +100,14 @@ const ModalText = ({ openModal, handleClose, subject, visitingHour,setOpenModal,
         <Fade in={openModal}>
           <Box sx={Modalstyle}>
             <div className="d-flex  justify-content-center">
-            <Typography
-              sx={{ fontWeight: 600, fontSize: 30, color: "#333c83" }}
-              id="transition-modal-title"
-              variant="h6"
-              component="h2"
-            >
-              {subject}
-            </Typography>
+              <Typography
+                sx={{ fontWeight: 600, fontSize: 30, color: "#333c83" }}
+                id="transition-modal-title"
+                variant="h6"
+                component="h2"
+              >
+                {subject}
+              </Typography>
             </div>
 
             <form onSubmit={handleFormSubmit}>
@@ -85,30 +121,36 @@ const ModalText = ({ openModal, handleClose, subject, visitingHour,setOpenModal,
                 variant="outlined"
               />
               <TextField
-              required
+                required
+                type="text"
                 sx={{ m: 1 }}
                 id="outlined-basic"
                 label="Name"
                 fullWidth
                 variant="outlined"
+                onChange={e => setName(e.target.value)}
               />
               <TextField
+                type="number"
                 sx={{ m: 1 }}
                 id="outlined-basic"
                 label="Phone Number"
                 fullWidth
                 required
                 variant="outlined"
+                onChange={e => setphoneNumber(e.target.value)}
               />
               <TextField
+                type="email"
                 sx={{ m: 1 }}
                 id="outlined-basic"
                 label="Email"
                 fullWidth
                 required
                 variant="outlined"
+                onChange={e => setEmail(e.target.value)}
               />
-              
+
               <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <Stack spacing={3}>
                   <DesktopDatePicker
