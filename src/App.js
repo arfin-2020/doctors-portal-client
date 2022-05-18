@@ -5,6 +5,7 @@ import Appointment from './Pages/Appointment/Appointment';
 import AuthProvider from "./Pages/Context/AuthProvider";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login";
+import Register from "./Pages/Register/Register";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
          <Route exact path="/" element = {<Home/>}/>
           <Route path='/login' element = {<Login/>}/>
          <Route path="/appointment" element={<Appointment/>}/>
-      
+         <Route path="/signUp" element={<Register/>} /> 
        </Routes>
        </AuthProvider>
        <ToastContainer />
