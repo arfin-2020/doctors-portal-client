@@ -170,6 +170,7 @@ const Register = () => {
             onChange={e => setconfirmPassword(e.target.value)}
           />
         </Box>
+        
         <div className="mt-5">
           <button style={buttonStyle}>Register</button>
           <Link to="/login" style={buttonStyle2}>
