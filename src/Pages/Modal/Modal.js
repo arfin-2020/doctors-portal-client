@@ -10,7 +10,7 @@ import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-
+import { useAuth } from "../Context/AuthProvider";
 const Modalstyle = {
   position: "absolute",
   top: "50%",
@@ -44,7 +44,8 @@ const ModalText = ({
   const [name, setName] = useState("");
   const [phoneNumber, setphoneNumber] = useState("");
   const [email, setEmail] = useState("");
-
+  
+  const {currentUser} = useAuth();
   const handleFormSubmit = e => {
 
     e.preventDefault();
@@ -126,6 +127,7 @@ const ModalText = ({
                 sx={{ m: 1 }}
                 id="outlined-basic"
                 label="Name"
+                defaultValue={currentUser.name}
                 fullWidth
                 variant="outlined"
                 onChange={e => setName(e.target.value)}
@@ -148,6 +150,7 @@ const ModalText = ({
                 fullWidth
                 required
                 variant="outlined"
+                defaultValue={currentUser.email}
                 onChange={e => setEmail(e.target.value)}
               />
 

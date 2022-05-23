@@ -47,6 +47,9 @@ const Navigation = () => {
             <Link style={LinkStyle} to="/appointment">
               Appointment
             </Link>
+            <Link style={LinkStyle} to="/dashboard">
+              Dashboard
+            </Link>
             {
                 !currentUser?.name?(
 

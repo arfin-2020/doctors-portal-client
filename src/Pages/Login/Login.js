@@ -20,11 +20,11 @@ const Login = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+ 
   const handleFormSubmit = async e => {
     e.preventDefault();
     if (email && name && password) {
-      console.log(email, password, name);
+      // console.log(email, password, name);
       try{
         logInWithEmailPassword(email,password,name);
         toast.success("Login sucessfull!",{
@@ -127,7 +127,7 @@ const Login = () => {
                   label="Password"
                   fullWidth
                   variant="outlined"
-                  onCanPlay={e => setPassword(e.target.value)}
+                  onChange={e => setPassword(e.target.value)}
                 />
 
                 <div className="mt-5">
