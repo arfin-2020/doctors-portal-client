@@ -11,6 +11,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { useAuth } from "../Context/AuthProvider";
+
 const Modalstyle = {
   position: "absolute",
   top: "50%",
@@ -43,21 +44,22 @@ const ModalText = ({
   const [calenderdate, setCalenderdate] = React.useState(new Date());
   const [name, setName] = useState("");
   const [phoneNumber, setphoneNumber] = useState("");
-  const [email, setEmail] = useState("");
+  
   
   const {currentUser} = useAuth();
+
   const handleFormSubmit = e => {
 
     e.preventDefault();
 
     const bookingInformation = {
-      name: name,
+      name: currentUser.name,
       phoneNumber: phoneNumber,
-      email: email,
-      date: date,
+      email: currentUser.email,
+      date: new Date(date).toLocaleDateString(),
       visitingHour: visitingHour,
     };
-
+console.log("BOOking------------",bookingInformation);
     fetch('http://localhost:5000/appointment',{
       method:'POST',
         headers:{
@@ -151,7 +153,7 @@ const ModalText = ({
                 required
                 variant="outlined"
                 defaultValue={currentUser.email}
-                onChange={e => setEmail(e.target.value)}
+                // onChange={e => setEmail(e.target.value)}
               />
 
               <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -160,7 +162,7 @@ const ModalText = ({
                     label="Date"
                     sx={{ m: 1 }}
                     value={date}
-                    minDate={new Date("2017-01-01")}
+                    minDate={new Date()}
                     onChange={newValue => {
                       setCalenderdate(newValue);
                     }}

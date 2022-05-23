@@ -27,7 +27,7 @@ const drawerWidth = 240;
 
 const Dashboard = (props) => {
     
-
+    const [ date, setdate ] = React.useState(new Date());
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -119,11 +119,11 @@ const Dashboard = (props) => {
                 <Toolbar />
                 
                 <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                    <Grid item xs={12} md={8}>
-                        <Calender />
+                    <Grid item xs={12} md={6}>
+                        <Calender date={date} setdate={setdate}  />
                     </Grid>
-                    <Grid  item xs={12} md={4}>
-                        <Appointments/>
+                    <Grid  item xs={12} md={6}>
+                        <Appointments date={date}/>
                     </Grid>
 
                 </Grid>
