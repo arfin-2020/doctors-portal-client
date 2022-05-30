@@ -23,10 +23,11 @@ const Login = () => {
  
   const handleFormSubmit = async e => {
     e.preventDefault();
-    if (email && name && password) {
+    
       // console.log(email, password, name);
       try{
         logInWithEmailPassword(email,password,name);
+        console.log('enterr')
         toast.success("Login sucessfull!",{
             position:"top-right",
             icon:"🚀",
@@ -35,21 +36,24 @@ const Login = () => {
           navigate(`${redirect_url}`, { replace: true });
           navigate("/")
       }catch(err){
-
-        console.log(err.message);
-        toast.error("User not found!",{
-            position:"top-right",
-            theme: "dark"
-          });
+        console.log("Error from catch block----", err.message);
+        if(err.message === "Firebase: Error (auth/user-not-found)."){
+          console.log("error-------",err.message);
+          toast.error("User not found!",{
+              position:"top-right",
+              theme: "dark"
+            });
+        }
       }
 
-    } else {
-      toast.warning("Please Fill up the all field!", {
-        position: "top-right",
-        // icon:"🚀",
-        theme: "dark",
-      });
-    }
+    
+    // else {
+    //   toast.warning("Please Fill up the all field!", {
+    //     position: "top-right",
+    //     // icon:"🚀",
+    //     theme: "dark",
+    //   });
+    // }
   };
 
   const handleSignInWithGoogle = async() =>{
@@ -101,7 +105,7 @@ const Login = () => {
               <h1>Login</h1>
               <form onSubmit={handleFormSubmit}>
                 <TextField
-                  
+                  required
                   type="text"
                   sx={{ m: 1 }}
                   label="Username"
@@ -111,7 +115,7 @@ const Login = () => {
                 />
 
                 <TextField
-                
+                required
                   type="email"
                   sx={{ m: 1 }}
                   label="Email"
@@ -121,7 +125,7 @@ const Login = () => {
                 />
 
                 <TextField
-                
+                required
                   type="password"
                   sx={{ m: 1 }}
                   label="Password"

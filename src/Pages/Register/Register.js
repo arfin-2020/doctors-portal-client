@@ -71,8 +71,7 @@ const Register = () => {
             theme: "dark",
           });
         } else if (
-          err.message ===
-          "Firebase: Password should be at least 6 characters (auth/weak-password)."
+          err.message === "Firebase: Password should be at least 6 characters (auth/weak-password)."
         ) {
           // setError('Password should be at least 6 characters');
           toast.warning("Password should be at least 6 characters", {

@@ -58,6 +58,7 @@ const ModalText = ({
       email: currentUser.email,
       date: new Date(date).toLocaleDateString(),
       visitingHour: visitingHour,
+      service: subject,
     };
 console.log("BOOking------------",bookingInformation);
     fetch('http://localhost:5000/appointment',{
@@ -75,7 +76,7 @@ console.log("BOOking------------",bookingInformation);
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Form Send successfull.",
+          title: "Appointment Booked Successfully.",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -159,6 +160,7 @@ console.log("BOOking------------",bookingInformation);
               <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <Stack spacing={3}>
                   <DesktopDatePicker
+                  disabled
                     label="Date"
                     sx={{ m: 1 }}
                     value={date}

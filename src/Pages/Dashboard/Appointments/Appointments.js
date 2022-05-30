@@ -7,10 +7,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+
+
 const Appointments = ({date}) => {
     const { currentUser } = useAuth();
     const [appointments, setAppointments] = useState([]);
-    console.log("date------",date);
+    console.log("appointments------",appointments);
    
     
     useEffect(() => {
@@ -34,6 +36,7 @@ const Appointments = ({date}) => {
                         <TableRow>
                             <TableCell>Name</TableCell>
                             <TableCell align="right">Time</TableCell>
+                            <TableCell align="right">Service</TableCell>
                             <TableCell align="right">Date</TableCell>
                         </TableRow>
                     </TableHead>
@@ -48,6 +51,7 @@ const Appointments = ({date}) => {
                                     {appointment.name}
                                 </TableCell>
                                 <TableCell align="right">{appointment.visitingHour}</TableCell>
+                                <TableCell align="right">{appointment.service}</TableCell>
                                 <TableCell align="right">{new Date(appointment.date).toLocaleDateString()}</TableCell>
                             </TableRow>
                         ))}

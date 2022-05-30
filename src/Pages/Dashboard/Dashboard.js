@@ -18,6 +18,7 @@ import Typography from '@mui/material/Typography';
 import Calender from '../Shared/Calender/Calender'
 import Grid from '@mui/material/Grid';
 import Appointments from './Appointments/Appointments';
+import { Link } from 'react-router-dom';
 
 
 
@@ -44,12 +45,14 @@ const Dashboard = (props) => {
                     <ListItem key={text} disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} 
                             </ListItemIcon>
-                            <ListItemText primary={text} />
+                            
+                            <ListItemText primary={text}  />
                         </ListItemButton>
                     </ListItem>
                 ))}
+                <Link  to ='/'>Home</Link>
             </List>
         </div>
     );

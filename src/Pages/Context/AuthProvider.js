@@ -60,9 +60,14 @@ const AuthProvider = ({ children }) => {
   };
 
   const signUpWithEmailPassword = async (username, email, password) => {
-    await createUserWithEmailAndPassword(auth, email, password);
-    const loggedInUser = { name: username, email:email };
-    setCurrentUser(loggedInUser);
+    setIslaoding(true);
+    await createUserWithEmailAndPassword(auth, email, password)
+    .then((result)=>{
+      const { email, displayName } = result.user;
+      console.log("result--------",result)
+      const loggedInUser = { name: username, email:email };
+      setCurrentUser(loggedInUser);
+    })
     setIslaoding(false);
   };
 
@@ -76,6 +81,10 @@ const AuthProvider = ({ children }) => {
     setIslaoding(true);
     await signInWithEmailAndPassword(auth, email, password)
       .then(result => {
+        // const { email, displayName } = result.user;
+        // console.log("result--------",result)
+        // const loggedInUser = { name: name, email:email };
+
         const { email } = result.user;
 
         const loggedInUser = { name, email };
