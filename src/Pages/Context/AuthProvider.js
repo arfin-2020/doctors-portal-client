@@ -1,10 +1,11 @@
 import {
-    createUserWithEmailAndPassword,
-    getAuth,
-    GoogleAuthProvider,
-    onAuthStateChanged,
-    sendEmailVerification, signInWithEmailAndPassword, signInWithPopup,
-    signOut
+  createUserWithEmailAndPassword,
+  getAuth,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  sendEmailVerification, signInWithEmailAndPassword, signInWithPopup,
+  signOut,
+  updateProfile
 } from "firebase/auth";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -63,10 +64,19 @@ const AuthProvider = ({ children }) => {
     setIslaoding(true);
     await createUserWithEmailAndPassword(auth, email, password)
     .then((result)=>{
-      const { email, displayName } = result.user;
+      
       console.log("result--------",result)
       const loggedInUser = { name: username, email:email };
       setCurrentUser(loggedInUser);
+      // Save user to database
+      saveUser(email,username)
+      updateProfile(auth.currentUser,{
+        name: username
+      }).then(()=>{
+
+      }).catch((error)=>{
+        console.log(error.message)
+      })
     })
     setIslaoding(false);
   };
@@ -107,6 +117,18 @@ const AuthProvider = ({ children }) => {
       })
       .finally(() => setIslaoding(false));
   };
+
+  const saveUser = (email, displayName) =>{
+      const user = {email,displayName}
+      fetch('http://localhost:5000/users',{
+        method : 'POST',
+        headers : {
+          'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(user)
+      })
+      .then()
+  }
 
   const value = {
     signInWithGoogle,
