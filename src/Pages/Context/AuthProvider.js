@@ -49,6 +49,7 @@ const AuthProvider = ({ children }) => {
       .then(result => {
         console.log(result);
         const { displayName, photoURL, email } = result.user;
+        saveUser(email,displayName,'PUT');
         const loggedInUser = {
           name: displayName,
           photoUrl: photoURL,
@@ -69,7 +70,7 @@ const AuthProvider = ({ children }) => {
       const loggedInUser = { name: username, email:email };
       setCurrentUser(loggedInUser);
       // Save user to database
-      saveUser(email,username)
+      saveUser(email,username,"POST")
       updateProfile(auth.currentUser,{
         name: username
       }).then(()=>{
@@ -95,8 +96,8 @@ const AuthProvider = ({ children }) => {
         // console.log("result--------",result)
         // const loggedInUser = { name: name, email:email };
 
-        const { email } = result.user;
-
+        const { email, displayName } = result.user;
+        
         const loggedInUser = { name, email };
         setCurrentUser(loggedInUser);
         setIslaoding(false);
@@ -118,10 +119,10 @@ const AuthProvider = ({ children }) => {
       .finally(() => setIslaoding(false));
   };
 
-  const saveUser = (email, displayName) =>{
+  const saveUser = (email, displayName,method) =>{
       const user = {email,displayName}
       fetch('http://localhost:5000/users',{
-        method : 'POST',
+        method : method,
         headers : {
           'Content-Type' : 'application/json'
         },

@@ -1,24 +1,22 @@
-import React from 'react';
+import MailIcon from '@mui/icons-material/Mail';
+import MenuIcon from '@mui/icons-material/Menu';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
-import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Calender from '../Shared/Calender/Calender'
-import Grid from '@mui/material/Grid';
-import Appointments from './Appointments/Appointments';
+import React from 'react';
 import { Link } from 'react-router-dom';
+
 
 
 
@@ -28,7 +26,7 @@ const drawerWidth = 240;
 
 const Dashboard = (props) => {
     
-    const [ date, setdate ] = React.useState(new Date());
+    
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -53,6 +51,7 @@ const Dashboard = (props) => {
                     </ListItem>
                 ))}
                 <Link  to ='/'>Home</Link>
+                <Link to = '/login'>Login</Link>
             </List>
         </div>
     );
@@ -121,7 +120,7 @@ const Dashboard = (props) => {
             >
                 <Toolbar />
                 
-                <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                {/* <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                     <Grid item xs={12} md={6}>
                         <Calender date={date} setdate={setdate}  />
                     </Grid>
@@ -129,7 +128,7 @@ const Dashboard = (props) => {
                         <Appointments date={date}/>
                     </Grid>
 
-                </Grid>
+                </Grid> */}
 
             </Box>
         </Box>
