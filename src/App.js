@@ -3,7 +3,10 @@ import { ToastContainer } from "react-toastify";
 import "./App.css";
 import Appointment from "./Pages/Appointment/Appointment";
 import AuthProvider from "./Pages/Context/AuthProvider";
+import AddDoctor from "./Pages/Dashboard/AddDoctor/AddDoctor";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import Admin from "./Pages/Dashboard/DashboardHome/Admin/Admin";
+import DashboardHome from "./Pages/Dashboard/DashboardHome/DashboardHome";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login";
 import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
@@ -20,7 +23,11 @@ function App() {
             <Route path="/signUp" element={<Register />} />
             <Route path="*" element={<PrivateRoute />}>
               <Route path="appointment" element={<Appointment />} />
-              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="dashboard" element={<Dashboard />}>
+                <Route path="dashboardHome" element={<DashboardHome />} />
+                <Route path="admin" element={<Admin />} />
+                <Route path="admin/addDoctor" element={<AddDoctor />} />
+              </Route>
             </Route>
           </Routes>
         </AuthProvider>
