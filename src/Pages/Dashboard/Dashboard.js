@@ -32,11 +32,11 @@ const Dashboard = props => {
       <Toolbar />
       <Divider />
       <nav>
-        <Link to="">Dashboard</Link> {" "}
-        <Link to="admin">Make Admin</Link> {" "}
+        <Link to="dashboard">Dashboard</Link> <br/>
+        <Link to="dashboard/admin">Make Admin</Link> <br/>
         <Link to="admin/addDoctor">Add Doctors</Link>
       </nav>
-      <Outlet />  
+      
       <List>
         {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
           <ListItem key={text} disablePadding>
@@ -130,10 +130,10 @@ const Dashboard = props => {
       >
         <Toolbar />
 
-       
-        <DashboardHome/>
-        {/* <Admin/>
-        <AddDoctor/> */}
+        <Outlet/>
+    
+      
+        
 
       
       </Box>

@@ -23,9 +23,9 @@ function App() {
             <Route path="/signUp" element={<Register />} />
             <Route path="*" element={<PrivateRoute />}>
               <Route path="appointment" element={<Appointment />} />
-              <Route path="dashboard" element={<Dashboard />}>
-                <Route path="dashboardHome" element={<DashboardHome />} />
-                <Route path="admin" element={<Admin />} />
+              <Route path="*" element={<Dashboard />}>
+                <Route path="dashboard" element={<DashboardHome />} />
+                <Route path="dashboard/admin" element={<Admin />} />
                 <Route path="admin/addDoctor" element={<AddDoctor />} />
               </Route>
             </Route>
