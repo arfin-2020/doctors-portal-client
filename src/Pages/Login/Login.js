@@ -20,7 +20,7 @@ const Login = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
- 
+  // console.log(currentUser)
   const handleFormSubmit = async e => {
     e.preventDefault();
     
@@ -144,7 +144,7 @@ const Login = () => {
               <p className="mt-2" style={{fontWeight:'bold'}}>
             Or
           </p>
-              {!currentUser?.name ? (
+              {!currentUser?.name || currentUser?.email ? (
                 <button
                   className="btn btn-primary"
                     onClick={handleSignInWithGoogle}

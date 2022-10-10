@@ -1,6 +1,7 @@
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  getIdToken,
   GoogleAuthProvider,
   onAuthStateChanged,
   sendEmailVerification, signInWithEmailAndPassword, signInWithPopup,
@@ -22,6 +23,8 @@ export const useAuth = () => {
 const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState({});
   const [isloading, setIslaoding] = useState(true);
+  const [admin, setAdmin] = useState(false);
+  const [token, setToken] = useState("");
   const navigate = useNavigate();
   const auth = getAuth();
 
@@ -35,6 +38,10 @@ const AuthProvider = ({ children }) => {
           email:email,
         };
         setCurrentUser(loggedInUser);
+        getIdToken(user)
+        .then((idToken)=>{
+            setToken(idToken)
+        })
       } else {
         setCurrentUser({});
       }
@@ -47,7 +54,7 @@ const AuthProvider = ({ children }) => {
     setIslaoding(true);
     await signInWithPopup(auth, googleProvider)
       .then(result => {
-        console.log(result);
+        // console.log(result);
         const { displayName, photoURL, email } = result.user;
         saveUser(email,displayName,'PUT');
         const loggedInUser = {
@@ -105,6 +112,15 @@ const AuthProvider = ({ children }) => {
       .finally(() => setIslaoding(false));
   };
 
+  useEffect(()=>{
+    fetch(`http://localhost:5000/users/${currentUser.email}`)
+    .then(res=>res.json())
+    .then(data=>{
+      // console.log('data-----------',data);
+      setAdmin(data.admin)
+    })
+  },[currentUser.email])
+
   const logOut = async () => {
     setIslaoding(true);
     signOut(auth)
@@ -139,6 +155,8 @@ const AuthProvider = ({ children }) => {
     currentUser,
     isloading,
     logOut,
+    admin,
+    token
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

@@ -1,29 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import { useAuth } from '../../Context/AuthProvider';
+import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import React, { useEffect, useState } from 'react';
+import { useAuth } from '../../Context/AuthProvider';
 
 
 const Appointments = ({date}) => {
-    const { currentUser } = useAuth();
+    const { currentUser, token } = useAuth();
     const [appointments, setAppointments] = useState([]);
     console.log("appointments------",appointments);
-   
     
+    // console.log(token)
     useEffect(() => {
         let url = `http://localhost:5000/appointment?email=${currentUser?.email}&date=${date}`;
-        fetch(url)
+        fetch(url,{
+            method:'GET',
+            headers:{
+                'authorization': `Bearer ${token}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 setAppointments(data);
                 console.log(data)
             })
-    }, [currentUser?.email, date])
+    }, [currentUser?.email, date,token])
 
 
 

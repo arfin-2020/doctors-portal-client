@@ -7,11 +7,12 @@ import AddDoctor from "./Pages/Dashboard/AddDoctor/AddDoctor";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Admin from "./Pages/Dashboard/DashboardHome/Admin/Admin";
 import DashboardHome from "./Pages/Dashboard/DashboardHome/DashboardHome";
+import Users from "./Pages/Dashboard/DashboardHome/Users/Users";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login";
+import ManageDoctor from "./Pages/ManageDoctor/ManageDoctor";
 import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 import Register from "./Pages/Register/Register";
-
 function App() {
   return (
     <div className="App">
@@ -26,7 +27,9 @@ function App() {
               <Route path="*" element={<Dashboard />}>
                 <Route path="dashboard" element={<DashboardHome />} />
                 <Route path="dashboard/admin" element={<Admin />} />
+                <Route path="dashboard/allusers" element={<Users />} />
                 <Route path="admin/addDoctor" element={<AddDoctor />} />
+                <Route path="admin/manageDoctor" element={<ManageDoctor/>} />
               </Route>
             </Route>
           </Routes>

@@ -1,6 +1,8 @@
-import MailIcon from "@mui/icons-material/Mail";
+import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
+import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
+import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
+import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -11,46 +13,118 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import DashboardHome from "./DashboardHome/DashboardHome";
+import { useAuth } from "../Context/AuthProvider";
 const drawerWidth = 240;
 
 const Dashboard = props => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
+  const { admin } = useAuth();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-
+  const LinkStyle = {
+    color: "black",
+    textDecoration: "none",
+    marginLeft: "20px",
+  };
   const drawer = (
     <div>
       <Toolbar />
       <Divider />
-      <nav>
-        <Link to="dashboard">Dashboard</Link> <br/>
-        <Link to="dashboard/admin">Make Admin</Link> <br/>
-        <Link to="admin/addDoctor">Add Doctors</Link>
-      </nav>
-      
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <GridViewOutlinedIcon />
+              <Link style={LinkStyle} to="dashboard">
+                Dashboard
+              </Link>{" "}
+              <br />
+            </ListItemIcon>
+          </ListItemButton>
+        </ListItem>
+      </List>
+      <List>
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <GridViewOutlinedIcon />
+              <Link style={LinkStyle} to="dashboard/allusers">
+                All Users
+              </Link>{" "}
+              <br />
+            </ListItemIcon>
+          </ListItemButton>
+        </ListItem>
+      </List>
+      {admin && (
+        <List>
+          <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                <AdminPanelSettingsOutlinedIcon />
+                <Box>
+                  <Link style={LinkStyle} to="dashboard/admin">
+                    Make Admin
+                  </Link>{" "}
+                  <br />
+                </Box>
               </ListItemIcon>
-
-              <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
-        ))}
-        <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
+        </List>
+      )}
+      {admin && (
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <AddCircleOutlineOutlinedIcon />
+                <Box>
+                  <Link style={LinkStyle} to="admin/addDoctor">
+                    Add Doctors
+                  </Link>{" "}
+                  <br />
+                </Box>
+              </ListItemIcon>
+            </ListItemButton>
+          </ListItem>
+        </List>
+      )}
+      {admin && (
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <AddCircleOutlineOutlinedIcon />
+                <Box>
+                  <Link style={LinkStyle} to="admin/manageDoctor">
+                    Manage Doctors
+                  </Link>{" "}
+                  <br />
+                </Box>
+              </ListItemIcon>
+            </ListItemButton>
+          </ListItem>
+        </List>
+      )}
+      <List>
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <ArrowBackOutlinedIcon />
+              <Link style={LinkStyle} to="">
+                Back to Home
+              </Link>{" "}
+              <br />
+            </ListItemIcon>
+          </ListItemButton>
+        </ListItem>
       </List>
     </div>
   );
@@ -130,12 +204,7 @@ const Dashboard = props => {
       >
         <Toolbar />
 
-        <Outlet/>
-    
-      
-        
-
-      
+        <Outlet />
       </Box>
     </Box>
   );
