@@ -12,9 +12,6 @@ import { useAuth } from '../../Context/AuthProvider';
 const Appointments = ({date}) => {
     const { currentUser, token } = useAuth();
     const [appointments, setAppointments] = useState([]);
-    console.log("appointments------",appointments);
-    
-    // console.log(token)
     useEffect(() => {
         let url = `http://localhost:5000/appointment?email=${currentUser?.email}&date=${date}`;
         fetch(url,{
@@ -26,7 +23,6 @@ const Appointments = ({date}) => {
             .then(response => response.json())
             .then(data => {
                 setAppointments(data);
-                console.log(data)
             })
     }, [currentUser?.email, date,token])
 
@@ -47,7 +43,6 @@ const Appointments = ({date}) => {
                     </TableHead>
                     <TableBody>
                         {appointments.map((appointment) => (
-                            // let date = appointment.date
                             <TableRow
                                 key={appointment._id}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

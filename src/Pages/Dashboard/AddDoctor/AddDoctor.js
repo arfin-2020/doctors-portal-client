@@ -5,27 +5,23 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../Context/AuthProvider";
-
 
 const AddDoctor = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [specialty, setSubject] = useState('');
+  const [specialty, setSpecialty] = useState('');
   const [file, setFile] = useState([]);
   const {token} = useAuth();
-  // const imageStorageKey = '1f116a2db6e07ec9cde80cd7b839edf8'
   const imageStorageKey = '506d0aab2682798ca8beb37ae829cb5a'
-
+  const navigate = useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault();
     if(name && email && specialty && file){
       const image = file;
-      console.log(file)
-      // const formData = new FormData();
       const formData = new FormData();
-      // formData.append('image',image);
       formData.append("image", image);
       const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`
       fetch(url,{
@@ -36,7 +32,6 @@ const AddDoctor = () => {
       .then(result=>{
         if(result.success){
           const img = result.data.url;
-          // console.log(img)
           const doctorDetails = {
             name,
             email,
@@ -48,13 +43,14 @@ const AddDoctor = () => {
           fetch('http://localhost:5000/doctor',{
             method : 'POST',
             headers: {
-              'authorization':`Bearer ${token}`,
+              authorization:`Bearer ${token}`,
               "Content-Type": "application/json",
               Accept: "application/json",
             },
             body: JSON.stringify(doctorDetails)
           }).then(res =>res.json())
           .then(result =>{
+            
             if(result.insertedId){
               toast.success("Doctor Details added Successfull!", {
                 position: "top-right",
@@ -64,6 +60,8 @@ const AddDoctor = () => {
             }
             
           })
+        
+          navigate('/admin/manageDoctor')
 
         }
         
@@ -83,7 +81,7 @@ const AddDoctor = () => {
     
   }
   const handleChange = (event) => {
-    setSubject(event.target.value);
+    setSpecialty(event.target.value);
     
   };
   const buttonStyle = {
@@ -120,6 +118,22 @@ const AddDoctor = () => {
     {
       id: 6,
       specialty: "Teeth Orthodontics",
+    },
+    {
+      id: 7,
+      specialty: "Diagnosis and treatment",
+    },
+    {
+      id: 8,
+      specialty: "Medical and health check-ups",
+    },
+    {
+      id: 9,
+      specialty: "Coordinating healthcare",
+    },
+    {
+      id: 6,
+      specialty: "Hair Specialist",
     },
   ];
  
@@ -180,7 +194,8 @@ const AddDoctor = () => {
               </MenuItem>
               {
                 bookingData.map((booking)=>(
-                  <MenuItem value={booking.specialty}>{booking.specialty}</MenuItem>
+                  
+                  <MenuItem value={booking.specialty} key={booking._id}>{booking.specialty}</MenuItem>
                 ))  
               }
             </Select>
