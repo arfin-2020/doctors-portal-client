@@ -13,7 +13,7 @@ const Appointments = ({date}) => {
     const { currentUser, token } = useAuth();
     const [appointments, setAppointments] = useState([]);
     useEffect(() => {
-        let url = `http://localhost:5000/appointment?email=${currentUser?.email}&date=${date}`;
+        let url = `http://localhost:5000/appointment?email=${currentUser?.email}`;
         fetch(url,{
             method:'GET',
             headers:{
@@ -42,7 +42,7 @@ const Appointments = ({date}) => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {appointments.map((appointment) => (
+                        {/* {appointments.map((appointment) => (
                             <TableRow
                                 key={appointment._id}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -54,7 +54,7 @@ const Appointments = ({date}) => {
                                 <TableCell align="right">{appointment.service}</TableCell>
                                 <TableCell align="right">{new Date(appointment.date).toLocaleDateString()}</TableCell>
                             </TableRow>
-                        ))}
+                        ))} */}
                     </TableBody>
                 </Table>
             </TableContainer>

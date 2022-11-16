@@ -40,10 +40,13 @@ const ModalText = ({
   visitingHour,
   setOpenModal,
   date,
+  price
 }) => {
   const [calenderdate, setCalenderdate] = React.useState(new Date());
   const [name, setName] = useState("");
   const [phoneNumber, setphoneNumber] = useState("");
+  
+
   
   
   const {currentUser} = useAuth();
@@ -53,14 +56,15 @@ const ModalText = ({
     e.preventDefault();
 
     const bookingInformation = {
-      name: currentUser.name,
+      name: name || currentUser.name,
       phoneNumber: phoneNumber,
       email: currentUser.email,
       date: new Date(date).toLocaleDateString(),
-      visitingHour: visitingHour,
+      price,
+      visitingHour,
       service: subject,
     };
-console.log("BOOking------------",bookingInformation);
+// console.log("BOOking------------",bookingInformation);
     fetch('http://localhost:5000/appointment',{
       method:'POST',
         headers:{
@@ -110,22 +114,33 @@ console.log("BOOking------------",bookingInformation);
                 variant="h6"
                 component="h2"
               >
-                {subject}
+                Booking for: {subject}
+              </Typography>
+            </div>
+            <div className="d-flex  justify-content-center">
+              <Typography
+                sx={{ fontWeight: 600, fontSize: 20, color: "#333c83" }}
+                id="transition-modal-title"
+                variant="h6"
+                component="h2"
+              >
+                Appointment Price : {price}
               </Typography>
             </div>
 
             <form onSubmit={handleFormSubmit}>
               <TextField
-                disabled
+              disabled
                 sx={{ m: 1 }}
                 defaultValue={visitingHour}
                 id="outlined-basic"
                 label="Time"
                 fullWidth
                 variant="outlined"
+                
               />
               <TextField
-                required
+                
                 type="text"
                 sx={{ m: 1 }}
                 id="outlined-basic"
