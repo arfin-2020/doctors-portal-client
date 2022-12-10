@@ -52,7 +52,7 @@ const AppointmentAvailable = ({ date }) => {
   ];
   return (
     <Box>
-      <h1 style={{color: '#333c83',marginBottom:'50px'}}> Appointment Available {date.toDateString()} </h1>
+      <h1 className="text-blue-600/100 p-5 text-4xl font-bold"> Appointment Available {date.toDateString()} </h1>
      <Container>
       <Grid
       container

@@ -1,8 +1,8 @@
 import { Button, TextField } from "@mui/material";
 import Alert from "@mui/material/Alert";
 import React, { useState } from "react";
+import Slide from 'react-reveal/Slide';
 import { useAuth } from "../../../Context/AuthProvider";
-
 const Admin = () => {
   const [email, setEmail] = useState("");
   const [success, setSuccess] = useState(false);
@@ -42,16 +42,8 @@ const Admin = () => {
   };
   return (
     <div>
-      {success && (
-        <Alert severity="success" color="info">
-          Make Admin Successful.
-        </Alert>
-      )}
-      {error && (
-        <Alert severity="error" color="warning">
-          This user alredy an admin.
-        </Alert>
-      )}
+    <Slide right>  
+    
       <h1>Make an Admin</h1>
       <form onSubmit={handleSubmit}>
         <TextField
@@ -66,6 +58,19 @@ const Admin = () => {
           Make Admin
         </Button>
       </form>
+      </Slide>
+      {success && (
+        <Alert severity="success" color="info">
+          Make Admin Successful.
+        </Alert>
+      )}
+      {error && (
+        <Alert severity="error" color="warning">
+          This user alredy an admin.
+        </Alert>
+      )}
+      
+     
     </div>
   );
 };

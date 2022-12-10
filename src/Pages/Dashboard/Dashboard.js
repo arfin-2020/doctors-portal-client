@@ -2,7 +2,9 @@ import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOu
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
+import ManageAccountsOutlinedIcon from '@mui/icons-material/ManageAccountsOutlined';
 import MenuIcon from "@mui/icons-material/Menu";
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -49,11 +51,13 @@ const Dashboard = props => {
           </ListItemButton>
         </ListItem>
       </List>
-      <List>
+      {
+        admin &&(
+          <List>
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
-              <GridViewOutlinedIcon />
+              <PeopleAltOutlinedIcon />
               <Link style={LinkStyle} to="dashboard/allusers">
                 All Users
               </Link>{" "}
@@ -62,6 +66,8 @@ const Dashboard = props => {
           </ListItemButton>
         </ListItem>
       </List>
+        )
+      }
       {admin && (
         <List>
           <ListItem disablePadding>
@@ -101,7 +107,7 @@ const Dashboard = props => {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <AddCircleOutlineOutlinedIcon />
+                <ManageAccountsOutlinedIcon />
                 <Box>
                   <Link style={LinkStyle} to="admin/manageDoctor">
                     Manage Doctors

@@ -8,6 +8,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import Admin from "./Pages/Dashboard/DashboardHome/Admin/Admin";
 import DashboardHome from "./Pages/Dashboard/DashboardHome/DashboardHome";
 import Users from "./Pages/Dashboard/DashboardHome/Users/Users";
+import Payment from "./Pages/Dashboard/Payment";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login";
 import ManageDoctor from "./Pages/ManageDoctor/ManageDoctor";
@@ -26,6 +27,7 @@ function App() {
               <Route path="appointment" element={<Appointment />} />
               <Route path="*" element={<Dashboard />}>
                 <Route path="dashboard" element={<DashboardHome />} />
+                <Route path="dashboard/payment/:appointmentId" element={<Payment />} />
                 <Route path="dashboard/admin" element={<Admin />} />
                 <Route path="dashboard/allusers" element={<Users />} />
                 <Route path="admin/addDoctor" element={<AddDoctor />} />

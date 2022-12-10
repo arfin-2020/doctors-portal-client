@@ -113,7 +113,7 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(()=>{
-    fetch(`http://localhost:5000/users/${currentUser.email}`)
+    fetch(`http://localhost:5000/users/${currentUser?.email}`)
     .then(res=>res.json())
     .then(data=>{
       // console.log('data-----------',data);

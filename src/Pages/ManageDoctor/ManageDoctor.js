@@ -59,10 +59,10 @@ const ManageDoctor = () => {
     }
     return (
         <div>
-            <h2 className='text-2xl'>Manage Doctors</h2>
-            <h2 className='text-2xl'>Total  Doctors {doctors.length}</h2>
+            
             <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 500, }} aria-label="simple table">
+            <h2 className='text-3xl font-bold'>Total  Doctors {doctors.length}</h2>
+                <Table sx={{ minWidth: 300}} aria-label="simple table">
                     <TableHead >
                         <TableRow>
                             <TableCell>No</TableCell>

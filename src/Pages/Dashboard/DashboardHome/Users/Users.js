@@ -8,7 +8,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import React, { useEffect, useState } from "react";
-
+import Rotate from 'react-reveal/Rotate';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
@@ -41,7 +41,8 @@ const Users = () => {
   }, []);
   return (
       <div>
-      <h2>Total User: {users.length}</h2>
+      <Rotate top left>
+      <h2 className="mb-2 text-1xl font-bold">Total User: {users.length}</h2>
     <Box display="flex" alignItems="center" justifyContent="center">
     
       <TableContainer component={Paper} style={{ width: 800 }}>
@@ -71,6 +72,7 @@ const Users = () => {
         </Table>
       </TableContainer>
     </Box>
+        </Rotate>
     </div>
   );
 };
