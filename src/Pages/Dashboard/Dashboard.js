@@ -1,6 +1,7 @@
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
+import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
 import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import ManageAccountsOutlinedIcon from '@mui/icons-material/ManageAccountsOutlined';
 import MenuIcon from "@mui/icons-material/Menu";
@@ -119,6 +120,19 @@ const Dashboard = props => {
           </ListItem>
         </List>
       )}
+      <List>
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <BookmarkAddOutlinedIcon />
+              <Link style={LinkStyle} to="appointment">
+                Appointments
+              </Link>{" "}
+              <br />
+            </ListItemIcon>
+          </ListItemButton>
+        </ListItem>
+      </List>
       <List>
         <ListItem disablePadding>
           <ListItemButton>
