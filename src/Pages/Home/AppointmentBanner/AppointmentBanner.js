@@ -4,9 +4,9 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import React from "react";
+import Slide from 'react-reveal/Slide';
 import AppointmentBG from "../../../assets/images/appointmentBg.png";
 import DoctorImage from "../../../assets/images/doctorvai.png";
-
 
 const AppointmentBackGround = {
   background: `url(${AppointmentBG})`,
@@ -19,7 +19,8 @@ const AppointmentBackGround = {
 
 const AppointmentBanner = () => {
   return (
-    <Box sx={{ flexGrow: 1, m: 10 }} style={AppointmentBackGround}>
+    <Slide left>
+      <Box sx={{ flexGrow: 1, m: 10 }} style={AppointmentBackGround}>
       <Container>
         <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12} md={4}>
@@ -60,6 +61,7 @@ const AppointmentBanner = () => {
         </Grid>
       </Container>
     </Box>
+    </Slide>
   );
 };
 

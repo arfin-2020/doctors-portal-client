@@ -1,8 +1,11 @@
 import React from "react";
+import { Slide } from "react-reveal";
 import Child from "../../assets/images/Child.png";
+
 const ServicesCare = () => {
   return (
-    <section className="justify-content-center d-flex container m-5">
+    <Slide right>
+      <section className="justify-content-center d-flex container m-5">
       <div className="row">
         <div className="col-md-6">
           <img src={Child} height="600px" alt="child" />
@@ -22,6 +25,7 @@ const ServicesCare = () => {
         </div>
       </div>
     </section>
+    </Slide>
   );
 };
 

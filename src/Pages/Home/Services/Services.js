@@ -4,6 +4,7 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import React from "react";
+import Slide from 'react-reveal/Slide';
 import cavity from "../../../assets/images/cavity.png";
 import flouride from "../../../assets/images/Flouride.png";
 import teeth from "../../../assets/images/Teeth.png";
@@ -31,7 +32,8 @@ const serviceData = [
 
 const Services = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Slide left>
+      <Box sx={{ flexGrow: 1 }}>
       <Container>
       <Typography sx={{fontWeight:500, color:'success.main',m:5}} variant='h6'>
                 Our Services
@@ -52,6 +54,7 @@ const Services = () => {
         </Grid>
       </Container>
     </Box>
+    </Slide>
   );
 };
 

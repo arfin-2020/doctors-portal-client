@@ -60,12 +60,12 @@ const Admin = () => {
       </form>
       </Slide>
       {success && (
-        <Alert severity="success" color="info">
+        <Alert className="mt-5" severity="success" color="info">
           Make Admin Successful.
         </Alert>
       )}
       {error && (
-        <Alert severity="error" color="warning">
+        <Alert className="mt-5" severity="error" color="warning">
           This user alredy an admin.
         </Alert>
       )}
