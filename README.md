@@ -2,7 +2,7 @@
 
 A single page web application where you can register as a user. Your can book appointment and also take facilities from this site.
 
-[Live Website](https://voluenteer-networks.web.app/) | [Live API Server](https://doctors-portal-server-last.onrender.com)
+[Live Website](https://doctor-s-portal-1d92f.web.app) | [Live API Server](https://doctors-portal-server-last.onrender.com)
 
 ## Features for Normal Users:
 
