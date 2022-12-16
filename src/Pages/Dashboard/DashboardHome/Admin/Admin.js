@@ -12,7 +12,7 @@ const Admin = () => {
     const user = { email };
     // console.log(email);
     
-    fetch("http://localhost:5000/users/admin", {
+    fetch("https://doctors-portal-server-last.onrender.com/users/admin", {
       method: "PUT",
       headers: {
         'authorization':`Bearer ${token}`,

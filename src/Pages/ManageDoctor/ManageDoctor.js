@@ -15,7 +15,7 @@ const ManageDoctor = () => {
     const { token } = useAuth();
     const [doctors, setDoctors] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/doctor`, {
+        fetch(`https://doctors-portal-server-last.onrender.com/doctor`, {
             headers: { authorization: `Bearer ${token}` }
         })
             .then(res => res.json())
@@ -36,7 +36,7 @@ const ManageDoctor = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`http://localhost:5000/doctor/${id}`, {
+                    fetch(`https://doctors-portal-server-last.onrender.com/doctor/${id}`, {
                         method: 'DELETE',
                         headers: { authorization: `Bearer ${token}` }
                     })

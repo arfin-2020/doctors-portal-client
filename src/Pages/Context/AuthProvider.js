@@ -113,7 +113,7 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(()=>{
-    fetch(`http://localhost:5000/users/${currentUser?.email}`)
+    fetch(`https://doctors-portal-server-last.onrender.com/users/${currentUser?.email}`)
     .then(res=>res.json())
     .then(data=>{
       // console.log('data-----------',data);
@@ -137,7 +137,7 @@ const AuthProvider = ({ children }) => {
 
   const saveUser = (email, displayName,method) =>{
       const user = {email,displayName}
-      fetch('http://localhost:5000/users',{
+      fetch('https://doctors-portal-server-last.onrender.com/users',{
         method : method,
         headers : {
           'Content-Type' : 'application/json'

@@ -16,7 +16,7 @@ const Appointments = () => {
     const [appointments, setAppointments] = useState([]);
     // console.log("Appointment---------",appointments)
     useEffect(() => {
-        let url = `http://localhost:5000/appointment?email=${currentUser?.email}`;
+        let url = `https://doctors-portal-server-last.onrender.com/appointment?email=${currentUser?.email}`;
         fetch(url, {
             method: 'GET',
             headers: {

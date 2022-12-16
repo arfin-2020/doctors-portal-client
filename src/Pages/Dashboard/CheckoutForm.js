@@ -23,7 +23,7 @@ const CheckoutForm = () => {
  
 
     useEffect(() => {
-        let url = `http://localhost:5000/booking/${appointmentId}`;
+        let url = `https://doctors-portal-server-last.onrender.com/booking/${appointmentId}`;
         fetch(url, {
             method: 'GET',
             headers: {
@@ -39,7 +39,7 @@ const CheckoutForm = () => {
     useEffect(()=>{
         if(price){
 
-            fetch(`http://localhost:5000/create-payment-intent`,{
+            fetch(`https://doctors-portal-server-last.onrender.com/create-payment-intent`,{
                 method: 'POST',
                 headers: {
                     "Access-Control-Allow-Origin": "*",
@@ -122,7 +122,7 @@ const CheckoutForm = () => {
                 transitionId : paymentIntent?.id,
             };
             console.log("Payment Details--------",paymentDetails,appointmentId);
-            fetch(`http://localhost:5000/booking/${appointmentId}`,{
+            fetch(`https://doctors-portal-server-last.onrender.com/booking/${appointmentId}`,{
                 method: 'PATCH',
                 headers: {
                     "Access-Control-Allow-Origin": "*",

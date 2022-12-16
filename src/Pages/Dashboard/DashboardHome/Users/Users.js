@@ -33,7 +33,7 @@ const Users = () => {
   const [users, setUsers] = useState([]);
   console.log(users);
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://doctors-portal-server-last.onrender.com/users")
       .then(res => res.json())
       .then(data => {
         setUsers(data);

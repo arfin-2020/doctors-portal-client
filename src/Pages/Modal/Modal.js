@@ -65,7 +65,7 @@ const ModalText = ({
       service: subject,
     };
 // console.log("BOOking------------",bookingInformation);
-    fetch('http://localhost:5000/appointment',{
+    fetch('https://doctors-portal-server-last.onrender.com/appointment',{
       method:'POST',
         headers:{
           'content-type': 'application/json'

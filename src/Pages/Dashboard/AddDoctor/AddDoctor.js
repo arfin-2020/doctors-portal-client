@@ -40,7 +40,7 @@ const AddDoctor = () => {
 
             }
             // send to database
-            fetch('http://localhost:5000/doctor', {
+            fetch('https://doctors-portal-server-last.onrender.com/doctor', {
               method: 'POST',
               headers: {
                 authorization: `Bearer ${token}`,
