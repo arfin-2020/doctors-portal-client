@@ -4,7 +4,7 @@ A single page web application where you can register as a user. Your can book ap
 
 [Live Website](https://voluenteer-networks.web.app/) | [Live API Server](https://doctors-portal-server-last.onrender.com)
 
-## Features in Normal Users:
+## Features for Normal Users:
 
 - Register as a user.
 - Booked Appointments.
@@ -15,7 +15,7 @@ A single page web application where you can register as a user. Your can book ap
 - Users can give reviews.
 - Implement private login system.
 
-## Features in Admin:
+## Features for Admin:
 
 - Admin can see all users who are logged in your site
 - Admin can make admin any users.
