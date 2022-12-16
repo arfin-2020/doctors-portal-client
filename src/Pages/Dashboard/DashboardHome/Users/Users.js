@@ -1,5 +1,7 @@
 import { Box } from "@mui/material";
+import LinearProgress from '@mui/material/LinearProgress';
 import Paper from "@mui/material/Paper";
+import Stack from '@mui/material/Stack';
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -31,7 +33,9 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-  console.log(users);
+ 
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     fetch("https://doctors-portal-server-last.onrender.com/users")
       .then(res => res.json())
@@ -39,9 +43,23 @@ const Users = () => {
         setUsers(data);
       });
   }, []);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
   return (
       <div>
-      <Rotate top left>
+
+      {
+        loading ? <Stack sx={{ width: '100%', color: 'grey.500' }} spacing={2}>
+     
+      <LinearProgress color="success" />
+     
+    </Stack>: <Rotate top left>
       <h2 className="mb-2 text-1xl font-bold">Total User: {users.length}</h2>
     <Box display="flex" alignItems="center" justifyContent="center">
     
@@ -73,6 +91,7 @@ const Users = () => {
       </TableContainer>
     </Box>
         </Rotate>
+      }
     </div>
   );
 };

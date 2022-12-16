@@ -23,6 +23,7 @@ export const useAuth = () => {
 const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState({});
   const [isloading, setIslaoding] = useState(true);
+
   const [admin, setAdmin] = useState(false);
   const [token, setToken] = useState("");
   const navigate = useNavigate();
@@ -49,6 +50,9 @@ const AuthProvider = ({ children }) => {
     setIslaoding(false);
     return unsubscribe;
   }, [auth]);
+
+
+ 
 
   const signInWithGoogle = async () => {
     setIslaoding(true);
@@ -154,6 +158,7 @@ const AuthProvider = ({ children }) => {
     logInWithEmailPassword,
     currentUser,
     isloading,
+
     logOut,
     admin,
     token
