@@ -102,7 +102,7 @@ const Login = () => {
         >
           <Grid item xs={6}>
             <Paper elevation={2} sx={{ p: 2 }}>
-              <h1>Login</h1>
+              <h1 className="text-3xl font-bold" style={{color: "#0002A1"}}>Login</h1>
               <form onSubmit={handleFormSubmit}>
                 <TextField
                   required

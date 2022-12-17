@@ -1,0 +1,17 @@
+.footerArea {
+  background-image: url(../../assets/images/ChairBG.png);
+  background-size: cover;
+}
+
+.footerArea li {
+  padding-bottom: 10px;
+}
+
+.socialMedia {
+  margin-right: 10px;
+}
+
+.socialMedia .activeIcon {
+  background-color: #6acece;
+  color: white;
+}

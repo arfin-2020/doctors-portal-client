@@ -1,6 +1,7 @@
 import React from 'react';
 import Slide from 'react-reveal/Slide';
 import Banner from '../../Banner/Banner';
+import Footer from '../../Footer/Footer';
 import Informations from '../../Information/Informations';
 import ServicesCare from '../../ServicesCare/ServicesCare';
 import Navigation from '../../Shared/Navigation/Navigation';
@@ -19,6 +20,7 @@ const Home = () => {
                 <Services/>
                 <ServicesCare/>
                 <AppointmentBanner/>
+                <Footer/>
         </div>
     );
 };

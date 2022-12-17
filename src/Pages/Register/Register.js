@@ -119,7 +119,7 @@ const Register = () => {
   };
   return (
     <div className="mt-20">
-      <h1 style={{ color: "#3F00FF" }}>Create An Account</h1>
+      <h1 className="text-3xl font-bold" style={{color: "#0002A1"}}>Create An Account</h1>
 
       <form onSubmit={handleSubmit}>
         <Box
