@@ -19,7 +19,7 @@ const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
     const {price, name, email, service} = paymentDetails;
-    console.log('Payment Details------------', appointmentId)
+    // console.log('Payment Details------------', appointmentId)
  
 
     useEffect(() => {
@@ -69,13 +69,10 @@ const CheckoutForm = () => {
         event.preventDefault();
 
         if (!stripe || !elements) {
-            // Stripe.js has not loaded yet. Make sure to disable
-            // form submission until Stripe.js has loaded.
+            
             return;
         }
-        // Get a reference to a mounted CardElement. Elements knows how
-        // to find your CardElement because there can only ever be one of
-        // each type of element.
+       
         const card = elements.getElement(CardElement);
         if (card == null) {
             return;
@@ -87,7 +84,7 @@ const CheckoutForm = () => {
         });
 
         setCardError(error && error.message || "")
-        console.log(error)
+        // console.log(error)
         setSuccess("")
         setProcessing(true)
 
@@ -114,14 +111,14 @@ const CheckoutForm = () => {
             setCardError("")
             // console.log("paymentIntent-----------------",paymentIntent)
             setTransitionId(paymentIntent?.id);
-            setSuccess("Congrats! You Payment is Successfully Completed."); 
+            setSuccess("Congrats! Your Payment is Successfully Completed."); 
 
             // Store Payment on Database
             const paymentsDetails = {
                 appointmentId: appointmentId,
                 transitionId : paymentIntent?.id,
             };
-            console.log("Payment Details--------",paymentDetails,appointmentId);
+            // console.log("Payment Details--------",paymentDetails,appointmentId);
             fetch(`https://doctors-portal-server-last.onrender.com/booking/${appointmentId}`,{
                 method: 'PATCH',
                 headers: {
@@ -133,7 +130,7 @@ const CheckoutForm = () => {
             })
             .then((res) => res.json())
             .then((data)=>{
-                console.log("Data-----------------", data)
+                // console.log("Data-----------------", data)
             })
         }
     };
@@ -175,7 +172,11 @@ const CheckoutForm = () => {
                                     },
                                 }}
                             />
-                            <button type="submit" disabled={!stripe || !clientSecret} className="mt-5 block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"> PAY NOW</button>
+                            
+
+                        
+                            <button type="submit"  disabled={!stripe || !clientSecret ||transitionID  } className="mt-5 block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"> {transitionID ? "Disable": "PAY NOW"}</button>
+                            
                         </form>
 
                         {cardError && (

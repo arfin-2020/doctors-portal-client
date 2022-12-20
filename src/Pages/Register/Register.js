@@ -62,7 +62,7 @@ const Register = () => {
           navigate("/");
         }
       } catch (err) {
-        console.log("Error from catch block----", err.message);
+        // console.log("Error from catch block----", err.message);
         if (err.message === "Firebase: Error (auth/email-already-in-use).") {
           // setError('This Email Already used');
           toast.warning("This Email Already used!", {

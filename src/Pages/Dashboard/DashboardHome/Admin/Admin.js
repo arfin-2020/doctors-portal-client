@@ -34,7 +34,7 @@ const Admin = () => {
       })
       .catch(err => {
         // Do something for an error here
-        console.log("Error Reading data " + err);
+        // console.log("Error Reading data " + err);
       });
 
     e.target.reset();
@@ -44,7 +44,7 @@ const Admin = () => {
     <div>
     <Slide right>  
     
-      <h1>Make an Admin</h1>
+      <h1 className="text-3xl font-bold" style={{color: '#1976d2'}}>Make an Admin</h1>
       <form onSubmit={handleSubmit}>
         <TextField
           sx={{ width: "25%" }}

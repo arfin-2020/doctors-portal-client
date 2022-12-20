@@ -85,7 +85,7 @@ const AddDoctor = () => {
 
   };
   const buttonStyle = {
-    backgroundColor: "#333c83",
+    backgroundColor: "#1976d2",
     color: "#ffffff",
     border: "none",
     padding: "10px",
@@ -116,10 +116,6 @@ const AddDoctor = () => {
       specialty: "Teeth Orthodontics",
     },
     {
-      id: 6,
-      specialty: "Teeth Orthodontics",
-    },
-    {
       id: 7,
       specialty: "Diagnosis and treatment",
     },
@@ -140,7 +136,7 @@ const AddDoctor = () => {
   return (
     <div>
       <Slide left>
-        <h2 className='text-3xl font-bold text-blue-700'>Add New Doctor</h2>
+        <h2 className='text-3xl font-bold ' style={{color: "#1976d2"}}>Add New Doctor</h2>
 
         <form onSubmit={handleSubmit}>
           <Box
@@ -204,7 +200,7 @@ const AddDoctor = () => {
             <br />
           </Box>
           <div className="mt-5">
-            <button style={buttonStyle}>Add</button>
+            <button style={buttonStyle}>ADD </button>
           </div>
 
         </form>

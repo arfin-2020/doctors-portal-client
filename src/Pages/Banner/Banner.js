@@ -6,8 +6,8 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 import Slide from 'react-reveal/Slide';
 import { Link } from 'react-router-dom';
-import char from "../../assets/images/Chair.png";
 import bgChar from "../../assets/images/ChairBG.png";
+import IsmileFace from "../../assets/images/Pretty patient.png";
 
 const AppointmentBackGround = {
   background: `url(${bgChar})`,
@@ -32,10 +32,12 @@ const Banner = () => {
 
             }}
           >
-
+<Grid item xs={12} md={7}>
+              <img src={IsmileFace} alt="chair" height="280px" />
+            </Grid>
             <Grid item xs={12} md={5} >
               <Typography sx={{ fontWeight: 600, color: '#333C83', fontSize: 50 }} variant='h4'>
-                Your new Smile
+              WE TAKE CARE
               </Typography>
               <Typography sx={{ fontWeight: 600, color: '#333C83', fontSize: 50, marginBottom: 5 }} variant='h4'>
                 Start Here
@@ -54,9 +56,7 @@ const Banner = () => {
 
 
 
-            <Grid item xs={12} md={7}>
-              <img src={char} alt="chair" height="280px" />
-            </Grid>
+            
 
           </Grid>
         </Container>

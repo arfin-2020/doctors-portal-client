@@ -27,7 +27,7 @@ const Login = () => {
       // console.log(email, password, name);
       try{
         logInWithEmailPassword(email,password,name);
-        console.log('enterr')
+        // console.log('enterr')
         toast.success("Login sucessfull!",{
             position:"top-right",
             icon:"🚀",
@@ -36,9 +36,9 @@ const Login = () => {
           navigate(`${redirect_url}`, { replace: true });
           navigate("/")
       }catch(err){
-        console.log("Error from catch block----", err.message);
+        // console.log("Error from catch block----", err.message);
         if(err.message === "Firebase: Error (auth/user-not-found)."){
-          console.log("error-------",err.message);
+          // console.log("error-------",err.message);
           toast.error("User not found!",{
               position:"top-right",
               theme: "dark"
@@ -64,7 +64,7 @@ const Login = () => {
         theme: "colored",
       });
       }catch(err){
-          console.log(err.message);
+          // console.log(err.message);
       }
   }
 

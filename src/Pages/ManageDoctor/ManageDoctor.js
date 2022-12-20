@@ -22,6 +22,9 @@ const ManageDoctor = () => {
         })
             .then(res => res.json())
             .then(doctors => {
+                // console.log('Before Reversing----------', doctors)
+                // const doctorss = doctors.reverse
+                // console.log('after Reversing----------', doctorss)
                 setDoctors(doctors)
             })
     }, [token])
@@ -79,7 +82,7 @@ const ManageDoctor = () => {
                                     <TableCell>Name</TableCell>
                                     <TableCell>Image</TableCell>
                                     <TableCell>Speciality</TableCell>
-                                    <TableCell>action</TableCell>
+                                    <TableCell>Action</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>

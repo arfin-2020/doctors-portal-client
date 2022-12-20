@@ -44,9 +44,30 @@ const AppointmentAvailable = ({ date }) => {
     },
     {
       id: 6,
-      subject: "Teeth Orthodontics",
+      subject: "Diagnosis Treatment",
       visitingHour: "8:00 AM - 9:00 AM",
-      price: '$799',
+      price: '$99',
+      totalSpace: 10,
+    },
+    {
+      id: 7,
+      subject: "Medical Check-ups",
+      visitingHour: "8:00 AM - 9:00 AM",
+      price: '$299',
+      totalSpace: 10,
+    },
+    {
+      id: 8,
+      subject: "Hair Specialist",
+      visitingHour: "11:00 AM - 1:00 PM",
+      price: '$59',
+      totalSpace: 10,
+    },
+    {
+      id: 9,
+      subject: "Eye Checkup",
+      visitingHour: "2:00 PM - 4:00 PM",
+      price: '$119',
       totalSpace: 10,
     },
   ];

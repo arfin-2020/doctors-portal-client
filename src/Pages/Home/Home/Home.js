@@ -1,5 +1,6 @@
 import React from 'react';
 import Slide from 'react-reveal/Slide';
+import AllDoctors from '../../AllDoctors/AllDoctors';
 import Banner from '../../Banner/Banner';
 import Footer from '../../Footer/Footer';
 import Informations from '../../Information/Informations';
@@ -19,6 +20,7 @@ const Home = () => {
             </Slide>
                 <Services/>
                 <ServicesCare/>
+                <AllDoctors/>
                 <AppointmentBanner/>
                 <Footer/>
         </div>

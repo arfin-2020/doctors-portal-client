@@ -77,7 +77,7 @@ const AuthProvider = ({ children }) => {
     await createUserWithEmailAndPassword(auth, email, password)
     .then((result)=>{
       
-      console.log("result--------",result)
+      // console.log("result--------",result)
       const loggedInUser = { name: username, email:email };
       setCurrentUser(loggedInUser);
       // Save user to database
@@ -87,7 +87,7 @@ const AuthProvider = ({ children }) => {
       }).then(()=>{
 
       }).catch((error)=>{
-        console.log(error.message)
+        // console.log(error.message)
       })
     })
     setIslaoding(false);
