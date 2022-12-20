@@ -200,7 +200,7 @@ const AddDoctor = () => {
             <br />
           </Box>
           <div className="mt-5">
-            <button style={buttonStyle}>ADD </button>
+            <button style={buttonStyle}>ADD DOCTOR</button>
           </div>
 
         </form>

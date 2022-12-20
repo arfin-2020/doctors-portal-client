@@ -42,7 +42,7 @@ const Banner = () => {
               <Typography sx={{ fontWeight: 600, color: '#333C83', fontSize: 50, marginBottom: 5 }} variant='h4'>
                 Start Here
               </Typography>
-              <Typography variant="h6" sx={{ fontSize: 14, color: 'Grey' }} >
+              <Typography variant="h6" sx={{ fontSize: 14, color: 'Grey' }}>
                 Being physically healthy enables you to have better overall health, including in your relationships. You only get one body, so taking care of it is important. By knowing your body, and your family's health history, you can start to figure out what is “normal” for you.
               </Typography>
               <Link to={`/appointment`}>

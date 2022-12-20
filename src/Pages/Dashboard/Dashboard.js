@@ -52,100 +52,102 @@ const Dashboard = props => {
           </ListItemButton>
         </ListItem>
       </List>
+
       {
-        admin &&(
+        admin ? <div>
           <List>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <PeopleAltOutlinedIcon />
-              <Link style={LinkStyle} to="dashboard/allusers">
-                All Users
-              </Link>{" "}
-              <br />
-            </ListItemIcon>
-          </ListItemButton>
-        </ListItem>
-      </List>
-        )
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <PeopleAltOutlinedIcon />
+                  <Link style={LinkStyle} to="dashboard/allusers">
+                    All Users
+                  </Link>{" "}
+                  <br />
+                </ListItemIcon>
+              </ListItemButton>
+            </ListItem>
+          </List>
+          <List>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <AdminPanelSettingsOutlinedIcon />
+                  <Box>
+                    <Link style={LinkStyle} to="dashboard/admin">
+                      Make Admin
+                    </Link>{" "}
+                    <br />
+                  </Box>
+                </ListItemIcon>
+              </ListItemButton>
+            </ListItem>
+          </List>
+          <List>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <AddCircleOutlineOutlinedIcon />
+                  <Box>
+                    <Link style={LinkStyle} to="admin/addDoctor">
+                      Add Doctors
+                    </Link>{" "}
+                    <br />
+                  </Box>
+                </ListItemIcon>
+              </ListItemButton>
+            </ListItem>
+          </List>
+          <List>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <ManageAccountsOutlinedIcon />
+                  <Box>
+                    <Link style={LinkStyle} to="admin/manageDoctor">
+                      Manage Doctors
+                    </Link>{" "}
+                    <br />
+                  </Box>
+                </ListItemIcon>
+              </ListItemButton>
+            </ListItem>
+          </List>
+        </div>
+
+          : (<></>
+
+          )
       }
-      {admin && (
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <AdminPanelSettingsOutlinedIcon />
-                <Box>
-                  <Link style={LinkStyle} to="dashboard/admin">
-                    Make Admin
-                  </Link>{" "}
-                  <br />
-                </Box>
-              </ListItemIcon>
-            </ListItemButton>
-          </ListItem>
-        </List>
-      )}
-      {admin && (
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <AddCircleOutlineOutlinedIcon />
-                <Box>
-                  <Link style={LinkStyle} to="admin/addDoctor">
-                    Add Doctors
-                  </Link>{" "}
-                  <br />
-                </Box>
-              </ListItemIcon>
-            </ListItemButton>
-          </ListItem>
-        </List>
-      )}
-      {admin && (
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <ManageAccountsOutlinedIcon />
-                <Box>
-                  <Link style={LinkStyle} to="admin/manageDoctor">
-                    Manage Doctors
-                  </Link>{" "}
-                  <br />
-                </Box>
-              </ListItemIcon>
-            </ListItemButton>
-          </ListItem>
-        </List>
-      )}
-      <List>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <BookmarkAddOutlinedIcon />
-              <Link style={LinkStyle} to="appointment">
-                Appointments
-              </Link>{" "}
-              <br />
-            </ListItemIcon>
-          </ListItemButton>
-        </ListItem>
-      </List>
-      <List>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <ArrowBackOutlinedIcon />
-              <Link style={LinkStyle} to="">
-                Back to Home
-              </Link>{" "}
-              <br />
-            </ListItemIcon>
-          </ListItemButton>
-        </ListItem>
-      </List>
+      <div>
+            <List>
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <BookmarkAddOutlinedIcon />
+                    <Link style={LinkStyle} to="appointment">
+                      Appointments
+                    </Link>{" "}
+                    <br />
+                  </ListItemIcon>
+                </ListItemButton>
+              </ListItem>
+            </List>
+            <List>
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <ArrowBackOutlinedIcon />
+                    <Link style={LinkStyle} to="">
+                      Back to Home
+                    </Link>{" "}
+                    <br />
+                  </ListItemIcon>
+                </ListItemButton>
+              </ListItem>
+            </List>
+          </div>
+
     </div>
   );
   const container =

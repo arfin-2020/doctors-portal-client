@@ -12,6 +12,7 @@ import Payment from "./Pages/Dashboard/Payment";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login";
 import ManageDoctor from "./Pages/ManageDoctor/ManageDoctor";
+import Offers from "./Pages/Offers/Offers";
 import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 import Register from "./Pages/Register/Register";
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signUp" element={<Register />} />
+            <Route path="/offers" element={<Offers />} />
             <Route path="*" element={<PrivateRoute />}>
               <Route path="appointment" element={<Appointment />} />
               <Route path="*" element={<Dashboard />}>

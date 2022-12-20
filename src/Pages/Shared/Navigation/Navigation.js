@@ -44,11 +44,17 @@ const Navigation = () => {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Doctors Portal
             </Typography>
+            <Link style={LinkStyle} to="/">
+              Home
+            </Link>
             <Link style={LinkStyle} to="/appointment">
               Appointment
             </Link>
             <Link style={LinkStyle} to="/dashboard">
               Dashboard
+            </Link>
+            <Link style={LinkStyle} to="/offers">
+              Offers
             </Link>
             {
                 !currentUser?.name?(
@@ -72,11 +78,10 @@ const Navigation = () => {
                   style={{ color: "white", marginLeft: "5px" }}> {currentUser?.email}</span>
                 </div>
               ):(
-                <Link
-                  to="/signUp"
-                >
-                  Sign up
-                </Link>
+                
+                <Link style={LinkStyle} to="/signUp">
+              Sign Up
+            </Link>
               )
             }
            
