@@ -1,16 +1,6 @@
 import React from 'react';
 const DoctorsDetails = ({ img, name, specialty }) => {
-  // console.log(speciality)
-  const buttonStyle = {
-    backgroundColor: "#1976d2",
-    color: "#ffffff",
-    border: "none",
-    padding: "10px",
-    width: "120px",
-    borderRadius: "5px",
-    fontWeight: "600",
-    marginTop: "50px",
-  };
+  
 
   return (
     <>
@@ -25,12 +15,9 @@ const DoctorsDetails = ({ img, name, specialty }) => {
         <div className="mt-4 flex justify-between">
           <div>
             <h3 className="text-2xl text-gray-700">
-
               <span aria-hidden="true" className="absolute inset-0" />
               {name}
-
             </h3>
-
             <p className="mt-1 text-sm text-gray-500">{specialty}</p>
           </div>
         </div>

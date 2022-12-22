@@ -9,6 +9,7 @@ import Admin from "./Pages/Dashboard/DashboardHome/Admin/Admin";
 import DashboardHome from "./Pages/Dashboard/DashboardHome/DashboardHome";
 import Users from "./Pages/Dashboard/DashboardHome/Users/Users";
 import Payment from "./Pages/Dashboard/Payment";
+import FQA from "./Pages/FQA/FQA";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login";
 import ManageDoctor from "./Pages/ManageDoctor/ManageDoctor";
@@ -25,6 +26,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signUp" element={<Register />} />
             <Route path="/offers" element={<Offers />} />
+            <Route path="/fqa" element={<FQA />} />
             <Route path="*" element={<PrivateRoute />}>
               <Route path="appointment" element={<Appointment />} />
               <Route path="*" element={<Dashboard />}>

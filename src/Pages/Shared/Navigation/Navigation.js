@@ -56,6 +56,9 @@ const Navigation = () => {
             <Link style={LinkStyle} to="/offers">
               Offers
             </Link>
+            <Link style={LinkStyle} to="/fqa">
+              FQA
+            </Link>
             {
                 !currentUser?.name?(
 
