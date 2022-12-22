@@ -16,6 +16,7 @@ const FQA = () => {
     return (
         <>
             <Navigation />
+            <h1 className="text-3xl">Comming Soon</h1>
             <Container className="mt-5 " >
             <Grid 
             container 
@@ -28,10 +29,10 @@ const FQA = () => {
 
             }}>
                 <Grid item xs={12} sm={12} md={4}>
-                    <Item>1</Item>
+                <Item><h1>Comming Soon</h1></Item>
                 </Grid>
                 <Grid item xs={12} sm={12} md={4}>
-                    <Item>2</Item>
+                    <Item><h1>Comming Soon</h1></Item>
                 </Grid>
 
             </Grid>
